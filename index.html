@@ -51,14 +51,41 @@
             font-size: 1.8rem;
             font-weight: 300;
             opacity: 0.9;
-            animation: fadeIn 3s ease-in;
             margin-top: 0;
+            margin-bottom: 30px;
+            animation: fadeIn 3s ease-in;
+        }
+
+        /* --- 3. NAVIGATION MENU --- */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 4s ease-in; /* Fades in slightly after the tagline */
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: white;
+            border-bottom: 2px solid white;
+            transform: translateY(-2px);
         }
 
         @keyframes fadeIn {
             0% { opacity: 0; }
             50% { opacity: 0; } 
-            100% { opacity: 0.9; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -67,6 +94,15 @@
     <div class="intro-container">
         <h1>Esha</h1>
         <p class="tagline">Exploring the horizons of human potential</p>
+        
+        <nav class="nav-menu">
+            <a href="education.html">Education</a>
+            <a href="interests.html">Interests</a>
+            <a href="projects.html">Projects</a>
+            <a href="music.html">Music</a>
+            <a href="notes.html">Notes</a>
+            <a href="socials.html">Socials</a>
+        </nav>
     </div>
 
 </body>
