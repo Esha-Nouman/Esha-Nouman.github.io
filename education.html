@@ -5,68 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esha | Education</title>
     <style>
+        /* --- 1. ANIMATED GRADIENT BACKGROUND (Same as Home) --- */
         body {
             margin: 0;
             padding: 50px 20px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            background-color: #f4f4f9; /* A clean, simple background instead of the moving colors */
+            color: white;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .content-box {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 2. MAIN CONTAINER --- */
+        .container {
             width: 100%;
+            max-width: 800px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in;
         }
 
         h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* Styles your 6-point list nicely */
-        ol {
-            line-height: 1.8;
+        /* --- 3. EXPANDABLE GLASS BOXES --- */
+        details {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-align: left;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        details[open] {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        summary {
+            padding: 20px 25px;
             font-size: 1.2rem;
-            color: #555;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none; /* Hides default arrow */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        /* Custom Plus/Minus Icon for the dropdown */
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Extra rule to hide arrow on Safari/Chrome */
+        }
+
+        /* The text inside the expanded box */
+        .details-content {
+            padding: 0 25px 25px 25px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        /* --- 4. BACK BUTTON --- */
         .back-btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #e73c7e;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             text-decoration: none;
             border-radius: 25px;
+            border: 1px solid white;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
         }
 
         .back-btn:hover {
-            background-color: #c0392b;
+            background: white;
+            color: #e73c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="content-box">
-        <h1>My Education</h1>
-        
-        <ol>
-            </li>The Smart School, Model Town A, Bahawalpur</li>
-            <li>Cantt Public Girls High School and College, Bahawalpur</li>
-            <li>Punjab Group of Colleges</li>
-            <li>Kips </li>
-            <li>The Islamia University of Bhawalpur</li>
-        </ol>
+    <div class="container">
+        <h1>Education</h1>
+
+        <details>
+            <summary>The Islamia University of Bhawalpur</summary>
+            <div class="details-content">
+                Add your degree, major, graduation year, or any special achievements from here!
+            </div>
+        </details>
+
+        <details>
+            <summary>Kips</summary>
+            <div class="details-content">
+                Add your details about your time at Kips here.
+            </div>
+        </details>
+
+        <details>
+            <summary>Punjab Group of Colleges</summary>
+            <div class="details-content">
+                Add your FSC/ICS details, grades, or subjects here.
+            </div>
+        </details>
+
+        <details>
+            <summary>Cantt Public Girls High School and College, Bahawalpur</summary>
+            <div class="details-content">
+                Add your matriculation details or any notable high school experiences.
+            </div>
+        </details>
+
+        <details>
+            <summary>The Smart School, Model Town A, Bahawalpur</summary>
+            <div class="details-content">
+                Add a quick note about your early education foundations here.
+            </div>
+        </details>
 
         <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
